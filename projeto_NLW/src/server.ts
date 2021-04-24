@@ -1,15 +1,6 @@
-import express, { request, response } from "express";
-
-//importar o index.js
-import "./database";
-import { routes } from "./routes"
-
-const app = express();
-
-//habilita o json
-app.use(express.json());
-
-app.use(routes);
+import { http } from "./http";
+import "./websocket/client"
+import "./websocket/admin"
 //criando rotas
 
 //      url, tudo que vem da req, reponse o que e retorno
@@ -27,4 +18,7 @@ app.use(routes);
 // });
 
 // a porta 
-app.listen(3333, () => console.log("Server running on port 3333"));
+//app.listen(3333, () => console.log("Server running on port 3333"));
+
+//socket
+http.listen(3333, () => console.log("Server running on port 3333"));
